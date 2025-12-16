@@ -1,71 +1,232 @@
-<app-container [title]="'Dashboard'" [subtitle]="'Bem-vindo de volta!'">
-  <div class="stats-grid">
-    <div class="stat-card">
-      <mat-icon class="stat-icon">trending_up</mat-icon>
-      <div class="stat-content">
-        <p class="stat-label">Total Leads</p>
-        <p class="stat-value">2.543</p>
+<app-container [title]="'Roadmap de Implementações'" [subtitle]="'Planejamento das próximas funcionalidades'">
+  <div class="dashboard-content">
+    <!-- Fase 1: Componentes Base -->
+    <div class="roadmap-phase">
+      <div class="phase-header">
+        <h2>Fase 1: Componentes Base</h2>
+        <span class="phase-status">Em Planejamento</span>
+      </div>
+      <div class="phase-items">
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>1.1 Criar Componentes Base Reutilizáveis</h3>
+            <span class="item-priority">Alta</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Estabelecer uma biblioteca de componentes reutilizáveis que siga o design system do projeto.</p>
+            <p><strong>Componentes a criar:</strong></p>
+            <ul>
+              <li>Button Component (com variações de tamanho, cor e estado)</li>
+              <li>Input/Form Fields (text, email, password, textarea)</li>
+              <li>Card Component (com header, body, footer)</li>
+              <li>Alert Component (success, error, warning, info)</li>
+              <li>Badge Component (labels e status indicators)</li>
+              <li>Loading Skeleton (para estados de carregamento)</li>
+              <li>Empty State Component (para listas vazias)</li>
+            </ul>
+            <p><strong>Tecnologia:</strong> Angular Standalone Components, Material Design</p>
+            <p><strong>Escopo:</strong> Implementar com dark mode, responsivo, acessibilidade (WCAG)</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>1.2 Dialog Component</h3>
+            <span class="item-priority">Alta</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Criar componente de diálogo modal reutilizável para confirmações, formulários e notificações.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Dialog genérico com header, body, footer customizáveis</li>
+              <li>Service para gerenciar múltiplos diálogos</li>
+              <li>Confirmação com botões (OK, Cancelar, Customizados)</li>
+              <li>Animations (fade in/out)</li>
+              <li>Teclado: ESC para fechar, TAB para navegar</li>
+              <li>Backdrop (clique fora para fechar)</li>
+              <li>Dark mode support</li>
+            </ul>
+            <p><strong>Baseado em:</strong> MatDialog do Angular Material</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>1.3 Tabela Paginada</h3>
+            <span class="item-priority">Alta</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Componente de tabela reutilizável com paginação, sorting e filtros.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Renderização de dados com colunas customizáveis</li>
+              <li>Paginação (tamanho da página, navegação)</li>
+              <li>Sorting (ascendente/descendente)</li>
+              <li>Filtros por coluna</li>
+              <li>Seleção de linhas (single e multiple)</li>
+              <li>Ações por linha (editar, deletar, custom)</li>
+              <li>Estados de carregamento e vazio</li>
+              <li>Responsivo (mobile com accordion)</li>
+            </ul>
+            <p><strong>Baseado em:</strong> MatTable do Angular Material</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="stat-card">
-      <mat-icon class="stat-icon">trending_down</mat-icon>
-      <div class="stat-content">
-        <p class="stat-label">Conversão</p>
-        <p class="stat-value">24%</p>
+    <!-- Fase 2: Autenticação -->
+    <div class="roadmap-phase">
+      <div class="phase-header">
+        <h2>Fase 2: Sistema de Autenticação</h2>
+        <span class="phase-status">Em Planejamento</span>
+      </div>
+      <div class="phase-items">
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>2.1 Módulo de Login</h3>
+            <span class="item-priority">Crítica</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Implementar tela e lógica de login com validações e feedback de erro.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Formulário reativo (email/CPF + password)</li>
+              <li>Validações em tempo real</li>
+              <li>Feedback de erro detalhado</li>
+              <li>Botão "Esqueci minha senha" (placeholder para fase posterior)</li>
+              <li>Loading state durante autenticação</li>
+              <li>Integração com AuthService (mock → real)</li>
+              <li>Redirecionamento automático se já autenticado</li>
+              <li>Dark mode support</li>
+            </ul>
+            <p><strong>Rota:</strong> /login (PublicLayout)</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>2.2 Fluxo de Autenticação</h3>
+            <span class="item-priority">Crítica</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Implementar fluxo completo de autenticação com persistência e proteção de rotas.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Auth Guard para proteger rotas /app/*</li>
+              <li>HTTP Interceptor para adicionar token em requisições</li>
+              <li>Persistência de sessão (localStorage)</li>
+              <li>Refresh de token automático (se existir backend)</li>
+              <li>Logout com limpeza de estado</li>
+              <li>Redirecionamento automático para login quando sessão expirar</li>
+              <li>Estados de carregamento inicial (splash screen)</li>
+            </ul>
+            <p><strong>Arquivos:</strong></p>
+            <ul>
+              <li>guards/auth.guard.ts</li>
+              <li>interceptors/auth.interceptor.ts</li>
+              <li>services/auth.service.ts (expandir)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>2.3 Sign Up / Registro</h3>
+            <span class="item-priority">Alta</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Criar fluxo de cadastro de novos usuários.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Formulário com validação de força de senha</li>
+              <li>Confirmação de email (verificação)</li>
+              <li>Termos de serviço (checkbox)</li>
+              <li>Feedback de sucesso/erro</li>
+              <li>Link para login se já tem conta</li>
+            </ul>
+            <p><strong>Rota:</strong> /signup (PublicLayout)</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>2.4 Recuperação de Senha</h3>
+            <span class="item-priority">Média</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Implementar fluxo de reset de senha.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Página de esqueci senha (email/CPF)</li>
+              <li>Envio de link de reset (mock)</li>
+              <li>Página de reset com nova senha</li>
+              <li>Validação de segurança</li>
+            </ul>
+            <p><strong>Rotas:</strong> /forgot-password, /reset-password/:token</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="stat-card">
-      <mat-icon class="stat-icon">check_circle</mat-icon>
-      <div class="stat-content">
-        <p class="stat-label">Ativos</p>
-        <p class="stat-value">1.891</p>
+    <!-- Fase 3: Funcionalidades Principais -->
+    <div class="roadmap-phase">
+      <div class="phase-header">
+        <h2>Fase 3: Funcionalidades Principais (Próximas)</h2>
+        <span class="phase-status">Planejado</span>
+      </div>
+      <div class="phase-items">
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>3.1 Gerenciamento de Leads</h3>
+            <span class="item-priority">Alta</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> CRUD completo para gerenciar leads.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Listagem com tabela paginada</li>
+              <li>Busca e filtros avançados</li>
+              <li>Criar novo lead (formulário/dialog)</li>
+              <li>Editar lead (inline ou modal)</li>
+              <li>Deletar com confirmação</li>
+              <li>Exportar dados (CSV, PDF)</li>
+              <li>Bulk actions</li>
+            </ul>
+            <p><strong>Rota:</strong> /app/leads</p>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <div class="item-header">
+            <h3>3.2 Configurações de Usuário</h3>
+            <span class="item-priority">Média</span>
+          </div>
+          <div class="item-description">
+            <p><strong>Objetivo:</strong> Página de settings do usuário.</p>
+            <p><strong>Funcionalidades:</strong></p>
+            <ul>
+              <li>Editar perfil (nome, email, foto)</li>
+              <li>Alterar senha</li>
+              <li>Preferências (tema, idioma, notificações)</li>
+              <li>Segurança (2FA, sessões ativas)</li>
+            </ul>
+            <p><strong>Rota:</strong> /app/settings</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="stat-card">
-      <mat-icon class="stat-icon">pending</mat-icon>
-      <div class="stat-content">
-        <p class="stat-label">Pendentes</p>
-        <p class="stat-value">652</p>
-      </div>
+    <!-- Notas Importantes -->
+    <div class="roadmap-notes">
+      <h2>Notas Importantes</h2>
+      <ul>
+        <li><strong>Dark Mode:</strong> Todos os componentes devem suportar dark mode via CSS variables</li>
+        <li><strong>Responsividade:</strong> Mobile-first, testar em múltiplas resoluções</li>
+        <li><strong>Acessibilidade:</strong> WCAG 2.1 AA, keyboard navigation, screen readers</li>
+        <li><strong>Testes:</strong> Unit tests (Jasmine) e E2E (Cypress) para funcionalidades críticas</li>
+        <li><strong>Performance:</strong> Lazy loading de módulos, OnPush change detection</li>
+        <li><strong>Backend:</strong> Atualmente mock, integração com API real será feita incrementalmente</li>
+      </ul>
     </div>
-  </div>
-
-  <div class="content-section">
-    <h2>Seções</h2>
-    <p>Componentes e seções adicionais virão aqui.</p>
-  </div>
-
-  <div class="content-section">
-    <h2>Relatório de Performance</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  </div>
-
-  <div class="content-section">
-    <h2>Análise de Dados</h2>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-  </div>
-
-  <div class="content-section">
-    <h2>Próximas Ações</h2>
-    <ul style="margin: 1rem 0; padding-left: 2rem; color: var(--text-secondary);">
-      <li style="margin-bottom: 0.5rem;">Revisar leads em aberto</li>
-      <li style="margin-bottom: 0.5rem;">Atualizar segmentação de contatos</li>
-      <li style="margin-bottom: 0.5rem;">Analisar tendências de conversão</li>
-      <li style="margin-bottom: 0.5rem;">Configurar campanhas automáticas</li>
-      <li>Gerar relatório mensal</li>
-    </ul>
-  </div>
-
-  <div class="content-section">
-    <h2>Estatísticas Adicionais</h2>
-    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex meritorious ex ea commodo consequatur.</p>
   </div>
 </app-container>
