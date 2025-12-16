@@ -1,6 +1,40 @@
-# Web
-RUN ON CONSOLE FOR AUTH:
+# Energest - Gestor de Leads
 
+Sistema de gestão de leads desenvolvido em Angular 21 com Material Design.
+
+## 🚀 Deploy Automático com GitHub Actions
+
+Este projeto está configurado para deploy automático no GitHub Pages através do GitHub Actions.
+
+### Configuração Inicial
+
+1. **Ative o GitHub Pages no repositório:**
+   - Vá em `Settings` > `Pages`
+   - Em `Source`, selecione `GitHub Actions`
+   - Salve as configurações
+
+2. **Push para a branch main:**
+   ```bash
+   git add .
+   git commit -m "Configure GitHub Pages deployment"
+   git push origin main
+   ```
+
+3. **Acompanhe o deploy:**
+   - Acesse a aba `Actions` no GitHub
+   - Veja o workflow `Deploy Angular to GitHub Pages` em execução
+   - Após conclusão, seu site estará disponível em: `https://<seu-usuario>.github.io/energest-web/`
+
+### Deploy Manual
+
+Se necessário, você pode disparar o deploy manualmente:
+- Vá em `Actions` > `Deploy Angular to GitHub Pages` > `Run workflow`
+
+## 🔐 Autenticação (Desenvolvimento)
+
+Para testar o sistema localmente, execute no console do navegador:
+
+```javascript
 localStorage.setItem('auth_user', JSON.stringify({
   id: '1',
   name: 'João Silva',
@@ -9,62 +43,106 @@ localStorage.setItem('auth_user', JSON.stringify({
 }));
 localStorage.setItem('auth_token', 'mock-token-12345');
 location.reload();
+```
 
+## 💻 Desenvolvimento Local
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
-
-## Development server
-
-To start a local development server, run:
+### Servidor de Desenvolvimento
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Navegue para `http://localhost:4200/`. A aplicação recarrega automaticamente ao modificar arquivos.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Build de Produção
 
 ```bash
-ng generate component component-name
+ng build --configuration production
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Os arquivos compilados estarão em `dist/web/browser/`.
+
+### Build para GitHub Pages (local)
 
 ```bash
-ng generate --help
+ng build --base-href=/energest-web/
 ```
 
-## Building
+## 📦 Estrutura do Projeto
 
-To build the project run:
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── common/          # Componentes reutilizáveis
+│   │   │   └── container/   # Container com breadcrumb
+│   │   ├── features/        # Páginas principais
+│   │   │   └── dashboard/   # Dashboard/Roadmap
+│   │   └── layouts/         # Layouts da aplicação
+│   │       └── sidebar/     # Sidebar com dark mode
+│   ├── layouts/
+│   │   ├── auth-layout/     # Layout para páginas autenticadas
+│   │   └── public-layout/   # Layout para páginas públicas
+│   ├── services/            # Serviços globais
+│   │   ├── auth.service.ts  # Autenticação
+│   │   └── theme.service.ts # Dark mode
+│   └── styles/              # Estilos globais
+│       ├── colors.scss      # Paleta de cores + CSS variables
+│       ├── global.scss      # Reset e estilos base
+│       ├── mixins.scss      # Mixins SCSS
+│       └── theme.scss       # Tema Material customizado
+└── public/
+    └── 404.html            # SPA redirect handling
+```
+
+## 🎨 Funcionalidades
+
+- ✅ **Dark Mode** - Sistema de temas com persistência localStorage
+- ✅ **Sidebar Responsivo** - Material Drawer com navegação
+- ✅ **Container Component** - Breadcrumb automático baseado em rotas
+- ✅ **Autenticação** - Sistema de auth com guards (mock)
+- ✅ **Roadmap** - Dashboard com planejamento de implementações
+- ✅ **SCSS Moderno** - Usando `@use` com CSS Variables
+- ✅ **Standalone Components** - Arquitetura Angular 19+
+
+## 🛠️ Tecnologias
+
+- **Angular 21** - Framework
+- **Angular Material** - UI Components
+- **TypeScript** - Linguagem
+- **SCSS** - Estilos
+- **Signals** - Reatividade
+- **GitHub Actions** - CI/CD
+
+## 📝 Scripts Disponíveis
 
 ```bash
-ng build
+npm start              # Inicia servidor de desenvolvimento
+npm run build          # Build de produção
+npm run watch          # Build em modo watch
+npm test               # Executa testes unitários
+npm run lint           # Verifica código com ESLint
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔄 Workflow do GitHub Actions
 
-## Running unit tests
+O arquivo `.github/workflows/deploy.yml` automatiza:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+1. ✅ Checkout do código
+2. ✅ Setup do Node.js 20
+3. ✅ Instalação de dependências (`npm ci`)
+4. ✅ Build da aplicação Angular
+5. ✅ Upload dos artifacts para GitHub Pages
+6. ✅ Deploy no GitHub Pages
 
-```bash
-ng test
-```
+## 📚 Recursos Adicionais
 
-## Running end-to-end tests
+- [Angular CLI Documentation](https://angular.dev/tools/cli)
+- [Angular Material](https://material.angular.io/)
+- [GitHub Pages](https://docs.github.com/pages)
+- [GitHub Actions](https://docs.github.com/actions)
 
-For end-to-end (e2e) testing, run:
+## 📄 Licença
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este projeto é de uso interno.
