@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { LoginComponent } from './components/features/login/login.component';
 import { DashboardComponent } from './components/features/dashboard/dashboard.component';
 
 /**
@@ -15,8 +16,12 @@ export const routes: Routes = [
     path: '',
     component: PublicLayoutComponent,
     children: [
-      // Rotas públicas serão adicionadas aqui
-      // ex: login, sign-up, forgot-password, etc.
+      {
+        path: '',
+        component: LoginComponent,
+      },
+      // Próximas rotas públicas serão adicionadas aqui
+      // ex: sign-up, forgot-password, etc.
     ],
   },
   {
