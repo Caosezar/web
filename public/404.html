@@ -3,19 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Energest</title>
-  <script>
-    // GitHub Pages SPA redirect
-    var pathSegmentsToKeep = 1;
-    var l = window.location;
-    l.replace(
-      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-      l.hash
-    );
-  </script>
 </head>
 <body>
+  <script>
+    // Save current path for Angular router
+    var fullPath = window.location.pathname + window.location.search + window.location.hash;
+    // Go to root with path as query param
+    window.location.replace(fullPath.split('/').slice(0, 2).join('/') + '/?redirect=' + encodeURIComponent(fullPath));
+  </script>
 </body>
 </html>
