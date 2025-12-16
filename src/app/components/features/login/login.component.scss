@@ -1,0 +1,388 @@
+
+.login-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f5f5 0%, #faf9fd 100%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(211, 185, 159, 0.1) 0%,
+      rgba(193, 119, 103, 0.05) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+/* Gradient Background Elements */
+.gradient-bg {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+
+  &.gradient-1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle, #d3b99f, transparent);
+  }
+
+  &.gradient-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -80px;
+    left: -80px;
+    background: radial-gradient(circle, #c17767, transparent);
+  }
+}
+
+/* Main Content */
+.login-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+  padding: 2rem;
+}
+/* Glassmorphism Card */
+.login-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px 0 rgba(211, 185, 159, 0.15),
+    0 4px 16px 0 rgba(193, 119, 103, 0.1);
+  animation: slideUp 0.6s ease-out 0.3s both;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0 0 2rem;
+  }
+}
+
+/* Form Styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .full-width {
+    width: 100%;
+
+    ::ng-deep {
+      .mat-mdc-form-field {
+        width: 100%;
+      }
+
+      .mdc-text-field {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+
+        &.mdc-text-field--focused {
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: rgba(109, 152, 186, 0.3) !important;
+      }
+
+      .mdc-text-field--focused .mdc-notched-outline__leading,
+      .mdc-text-field--focused .mdc-notched-outline__notch,
+      .mdc-text-field--focused .mdc-notched-outline__trailing {
+        border-color: var(--color-primary) !important;
+      }
+
+      .mdc-floating-label {
+        color: var(--text-secondary) !important;
+
+        &.mdc-floating-label--float-above {
+          color: var(--color-primary) !important;
+        }
+      }
+
+      .mdc-text-field__input {
+        color: var(--text-primary) !important;
+        font-size: 1rem;
+
+        &::placeholder {
+          color: var(--text-secondary);
+        }
+      }
+
+      .mat-mdc-icon-button {
+        color: var(--text-secondary);
+
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+
+      .mat-mdc-form-field-suffix {
+        color: var(--text-secondary);
+      }
+    }
+  }
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: var(--color-error);
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Form Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+
+  ::ng-deep {
+    .mat-mdc-checkbox-label {
+      color: var(--text-primary) !important;
+      font-size: 0.95rem;
+    }
+  }
+
+  .forgot-password {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--color-accent-dark);
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Login Button */
+.login-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #c17767 0%, #c17767 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+
+  &:not(:disabled) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(193, 119, 103, 0.3);
+
+      &::before {
+        transform: translateX(100%);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .loading-spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  ::ng-deep {
+    .mat-mdc-button-base {
+      background: linear-gradient(135deg, #c17767 0%, #c17767 100%);
+    }
+  }
+}
+
+/* Sign Up Link */
+.signup-link {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(109, 152, 186, 0.1);
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--color-accent-dark);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-content {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .login-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+    }
+  }
+
+  .login-card {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .gradient-bg {
+    &.gradient-1 {
+      width: 250px;
+      height: 250px;
+      top: -50px;
+      right: -50px;
+    }
+
+    &.gradient-2 {
+      width: 200px;
+      height: 200px;
+      bottom: -40px;
+      left: -40px;
+    }
+  }
+}
