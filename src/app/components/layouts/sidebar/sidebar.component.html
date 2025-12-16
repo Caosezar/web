@@ -82,11 +82,11 @@
     </div>
   </mat-drawer>
 
-  <!-- Main Content -->
-  <div class="sidebar-content">
+  <!-- Main Content - botão de toggle movido para dentro do container via CSS -->
+  <mat-drawer-content class="main-content">
     <button type="button" mat-icon-button (click)="drawer.toggle()" class="menu-toggle-btn">
       <mat-icon>menu</mat-icon>
     </button>
     <ng-content></ng-content>
-  </div>
+  </mat-drawer-content>
 </mat-drawer-container>

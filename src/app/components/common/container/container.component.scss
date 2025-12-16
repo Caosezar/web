@@ -5,23 +5,24 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--color-bg-primary);
   @include media-md {
-    padding: 1rem;
+    padding: 0;
   }
 }
 
 .container-header {
   margin-bottom: 2rem;
-  padding-left: 2rem;
+  padding: 2rem 2rem 0 2rem;
   @include media-md {
     margin-bottom: 1.5rem;
+    padding: 1rem 1rem 0 1rem;
   }
 }
 
 .container-title {
-  padding-left: 1rem;
+  padding-left: 0;
   font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -31,7 +32,7 @@
 }
 
 .container-subtitle {
-  padding-left: 1rem;
+  padding-left: 0;
   margin: 0 0 1rem;
   font-size: 1rem;
   color: var(--text-secondary);
@@ -43,7 +44,7 @@
 .breadcrumb {
   @include flex($direction: row, $justify: flex-start, $align: center);
   flex-wrap: wrap;
-  padding-left: 1rem;
+  padding-left: 0;
   gap: 0.5rem;
   font-size: 0.875rem;
   color: var(--text-secondary);
@@ -72,10 +73,11 @@
 .container-body {
   flex: 1;
   overflow-y: auto;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  padding-left: 3rem;
+  overflow-x: hidden;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
   @include media-md {
-    padding-bottom: 0.5rem;
+    padding: 1rem;
   }
 }

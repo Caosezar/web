@@ -5,6 +5,15 @@
   height: 100vh;
   display: flex;
   background-color: var(--color-bg-primary);
+
+  ::ng-deep .mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+  }
 }
 
 .sidebar-drawer {
@@ -180,11 +189,13 @@
   }
 }
 
-.sidebar-content {
-  flex: 1;
-  @include flex-center;
+.main-content {
   position: relative;
-  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
   .menu-toggle-btn {
     position: absolute;
     top: 1rem;

@@ -26,7 +26,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -47,7 +48,12 @@ body {
    TIPOGRAFIA
    =================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 500;
   line-height: 1.3;
   margin-bottom: 0.5rem;
@@ -98,11 +104,13 @@ small {
   color: $gray-4;
 }
 
-strong, b {
+strong,
+b {
   font-weight: 600;
 }
 
-em, i {
+em,
+i {
   font-style: italic;
 }
 
@@ -132,7 +140,8 @@ a {
    LISTAS
    =================================== */
 
-ul, ol {
+ul,
+ol {
   margin-left: 1.5rem;
   margin-bottom: 1rem;
 
@@ -145,18 +154,20 @@ ul, ol {
    FORMULÁRIOS
    =================================== */
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="date"],
-input[type="time"],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='date'],
+input[type='time'],
 textarea,
 select {
   border: 1px solid $border-light;
@@ -186,7 +197,10 @@ textarea {
    BOTÕES
    =================================== */
 
-button, input[type="button"], input[type="submit"], input[type="reset"] {
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -215,7 +229,8 @@ thead {
   background-color: $bg-tertiary;
 }
 
-th, td {
+th,
+td {
   padding: 1rem;
   text-align: left;
   border-bottom: 1px solid $border-light;
@@ -234,7 +249,8 @@ tbody tr:hover {
    CÓDIGOS
    =================================== */
 
-code, pre {
+code,
+pre {
   font-family: 'Courier New', monospace;
   background-color: $bg-tertiary;
   color: $dark;
@@ -357,12 +373,6 @@ img {
 .bg-light {
   background-color: $light;
   color: $dark;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 }
 
 /* Clearfix */

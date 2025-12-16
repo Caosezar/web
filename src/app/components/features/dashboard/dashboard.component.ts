@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import { ContainerComponent } from '../../common/container/container.component';
 
 @Component({
@@ -7,7 +8,7 @@ import { ContainerComponent } from '../../common/container/container.component';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   standalone: true,
-  imports: [CommonModule, ContainerComponent],
+  imports: [CommonModule, ContainerComponent, MatIconModule],
 })
 export class DashboardComponent {
   stats = [
