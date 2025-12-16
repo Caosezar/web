@@ -1,0 +1,92 @@
+<mat-drawer-container class="sidebar-container" autosize>
+  <mat-drawer #drawer class="sidebar-drawer" mode="side">
+    <!-- Header -->
+    <div class="sidebar-header">
+      <h2>Energest</h2>
+      <button mat-icon-button (click)="drawer.toggle()" class="close-btn">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- User Info -->
+    @if (currentUser()) {
+      <div class="user-section">
+        <div class="user-avatar">
+          {{ currentUser()!.name!.charAt(0).toUpperCase() }}
+        </div>
+        <div class="user-info">
+          <p class="user-name">{{ currentUser()?.name }}</p>
+          <p class="user-email">{{ currentUser()?.email }}</p>
+        </div>
+      </div>
+    }
+
+    <mat-divider></mat-divider>
+
+    <!-- Navigation Menu -->
+    <mat-nav-list class="nav-list">
+      <mat-list-item routerLink="/app/dashboard" (click)="drawer.close()">
+        <mat-icon matListItemIcon>dashboard</mat-icon>
+        <span matListItemTitle>Dashboard</span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon matListItemIcon>settings</mat-icon>
+        <span matListItemTitle>Configurações</span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon matListItemIcon>help</mat-icon>
+        <span matListItemTitle>Ajuda</span>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle-section">
+      <mat-slide-toggle [checked]="isDarkMode()" (change)="toggleDarkMode()" class="theme-toggle">
+        <span class="toggle-label">
+          @if (isDarkMode()) {
+            <mat-icon>dark_mode</mat-icon>
+            Dark Mode
+          } @else {
+            <mat-icon>light_mode</mat-icon>
+            Light Mode
+          }
+        </span>
+      </mat-slide-toggle>
+    </div>
+
+    <!-- Filler Content -->
+    @if (showFillerContent()) {
+      <div class="filler-content">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    }
+
+    <button mat-button (click)="toggleFillerContent()" class="toggle-filler-btn">
+      {{ showFillerContent() ? 'Esconder' : 'Mostrar' }} Conteúdo Extra
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <!-- Logout -->
+    <div class="logout-section">
+      <button mat-raised-button color="warn" (click)="logout()" class="logout-btn">
+        <mat-icon>logout</mat-icon>
+        Sair
+      </button>
+    </div>
+  </mat-drawer>
+
+  <!-- Main Content -->
+  <div class="sidebar-content">
+    <button type="button" mat-icon-button (click)="drawer.toggle()" class="menu-toggle-btn">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <ng-content></ng-content>
+  </div>
+</mat-drawer-container>

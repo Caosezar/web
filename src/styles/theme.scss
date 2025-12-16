@@ -1,0 +1,433 @@
+/**
+ * Tema Angular Material Customizado
+ *
+ * Define cores primárias, secundárias e acentos
+ * para componentes do Angular Material
+ */
+
+@use 'sass:color';
+@use '@angular/material' as mat;
+@use './colors' as *;
+@use './mixins' as *;
+
+/* ===================================
+   TEMA ENERGEST
+   =================================== */
+
+// Define a paleta de cores do tema
+$energest-primary: (
+  50: #f5f7fa,
+  100: #e8eef5,
+  200: #d1dce9,
+  300: #9aadbf,
+  400: #7a92ad,
+  500: #6d98ba,
+  600: #5d88aa,
+  700: #4d7899,
+  800: #3d6889,
+  900: #2d5878,
+  A100: #c1e0ff,
+  A200: #8ebdff,
+  A400: #5a9aff,
+  A700: #4088ff,
+  contrast: (
+    50: $dark,
+    100: $dark,
+    200: $dark,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $dark,
+    A200: $dark,
+    A400: $white,
+    A700: $white,
+  )
+);
+
+$energest-accent: (
+  50: #f8edea,
+  100: #efd5ca,
+  200: #e5b8a6,
+  300: #db9b82,
+  400: #d48569,
+  500: #c17767,
+  600: #ba6f60,
+  700: #b06558,
+  800: #a65b50,
+  900: #964a42,
+  A100: #ffb9a6,
+  A200: #ff9373,
+  A400: #ff6d40,
+  A700: #ff5526,
+  contrast: (
+    50: $dark,
+    100: $dark,
+    200: $dark,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $dark,
+    A200: $dark,
+    A400: $white,
+    A700: $white,
+  )
+);
+
+$energest-warn: (
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #f57c00,
+  900: #e65100,
+  A100: #ff9d3f,
+  A200: #ff6e40,
+  A400: #ff3d00,
+  A700: #dd2c00,
+  contrast: (
+    50: $dark,
+    100: $dark,
+    200: $dark,
+    300: $dark,
+    400: $dark,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $dark,
+    A200: $dark,
+    A400: $dark,
+    A700: $white,
+  )
+);
+
+/* ===================================
+   OVERRIDES GLOBAIS DO MATERIAL
+   =================================== */
+
+// Customiza botões do Material
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-flat-button,
+.mat-mdc-stroked-button {
+  @include transition;
+}
+
+// Customiza inputs do Material
+.mat-mdc-form-field {
+  .mat-mdc-form-field-hint {
+    color: $gray-4 !important;
+  }
+
+  &.mat-focused {
+    .mat-mdc-form-field-label {
+      color: $primary !important;
+    }
+  }
+}
+
+// Customiza cards do Material
+.mat-mdc-card {
+  @include shadow-md;
+
+  &:hover {
+    @include shadow-lg;
+  }
+}
+
+// Customiza tabelas do Material
+.mat-mdc-table {
+  th {
+    font-weight: 600;
+    color: $dark;
+  }
+
+  tbody tr:hover {
+    background-color: $bg-secondary;
+  }
+}
+
+// Customiza diálogos do Material
+.mat-mdc-dialog-container {
+  @include shadow-xl;
+}
+
+// Customiza select do Material
+.mat-mdc-select {
+  .mat-mdc-select-trigger {
+    color: $dark;
+  }
+
+  &.mat-focused {
+    .mat-mdc-select-trigger {
+      color: $primary;
+    }
+  }
+}
+
+// Customiza tooltip do Material
+.mat-tooltip {
+  background-color: $dark !important;
+  font-size: 0.875rem;
+}
+
+// Customiza stepper do Material
+.mat-horizontal-stepper-header,
+.mat-vertical-stepper-header {
+  &.mat-completed {
+    .mat-step-icon {
+      background-color: $success !important;
+    }
+  }
+
+  &.mat-active {
+    .mat-step-icon {
+      background-color: $primary !important;
+    }
+  }
+}
+
+/* ===================================
+   CUSTOMIZAÇÕES ESPECÍFICAS
+   =================================== */
+
+// Links mais visíveis
+a {
+  color: $primary;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+// Scrollbar customizado
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-3;
+
+  &:hover {
+    background: $gray-4;
+  }
+}
+
+/* ===================================
+   PALETAS DE CORES ADICIONAIS
+   =================================== */
+
+// Cores de status
+.status-success {
+  color: $success;
+  background-color: color.adjust($success, $lightness: 40%);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.status-warning {
+  color: $warning;
+  background-color: color.adjust($warning, $lightness: 40%);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.status-error {
+  color: $error;
+  background-color: color.adjust($error, $lightness: 40%);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.status-info {
+  color: $info;
+  background-color: color.adjust($info, $lightness: 40%);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* ===================================
+   BADGES E TAGS
+   =================================== */
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.badge-primary {
+    background-color: $primary;
+    color: $white;
+  }
+
+  &.badge-secondary {
+    background-color: $secondary;
+    color: $dark;
+  }
+
+  &.badge-accent {
+    background-color: $accent;
+    color: $white;
+  }
+}
+
+/* ===================================
+   ALERTAS
+   =================================== */
+
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid;
+  margin-bottom: 1rem;
+
+  &.alert-success {
+    background-color: color.adjust($success, $lightness: 45%);
+    border-color: $success;
+    color: color.adjust($success, $lightness: -20%);
+  }
+
+  &.alert-warning {
+    background-color: color.adjust($warning, $lightness: 45%);
+    border-color: $warning;
+    color: color.adjust($warning, $lightness: -20%);
+  }
+
+  &.alert-error {
+    background-color: color.adjust($error, $lightness: 45%);
+    border-color: $error;
+    color: color.adjust($error, $lightness: -20%);
+  }
+
+  &.alert-info {
+    background-color: color.adjust($info, $lightness: 45%);
+    border-color: $info;
+    color: color.adjust($info, $lightness: -20%);
+  }
+}
+
+/* ===================================
+   DARK MODE - ESTILOS MATERIAL
+   =================================== */
+
+.dark-mode {
+  /* Material List Items */
+  .mat-mdc-list-item,
+  .mat-list-item,
+  .mdc-list-item {
+    color: var(--text-primary) !important;
+
+    .mdc-list-item__primary-text,
+    .mat-mdc-list-item-title {
+      color: var(--text-primary) !important;
+    }
+
+    .mdc-list-item__secondary-text,
+    .mat-mdc-list-item-line {
+      color: var(--text-secondary) !important;
+    }
+  }
+
+  /* Material Buttons */
+  .mat-mdc-button,
+  .mat-mdc-raised-button,
+  .mat-mdc-button-base {
+    color: var(--text-primary) !important;
+
+    &[color="warn"] {
+      color: var(--color-accent-light) !important;
+
+      &:hover {
+        color: var(--color-accent) !important;
+      }
+    }
+
+    &[color="primary"] {
+      color: var(--color-primary-light) !important;
+
+      &:hover {
+        color: var(--color-primary) !important;
+      }
+    }
+  }
+
+  /* Material Icons */
+  .mat-icon {
+    color: var(--text-primary) !important;
+  }
+
+  /* Material Input Fields */
+  .mat-mdc-form-field,
+  .mdc-text-field {
+    color: var(--text-primary) !important;
+
+    .mat-mdc-form-field-label,
+    .mdc-floating-label {
+      color: var(--text-secondary) !important;
+    }
+
+    .mdc-line-ripple::after {
+      border-bottom-color: var(--border-color) !important;
+    }
+  }
+
+  /* Material Card */
+  .mat-mdc-card {
+    color: var(--text-primary) !important;
+    background-color: var(--color-bg-secondary) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  /* Material Checkbox, Radio */
+  .mat-mdc-checkbox-label,
+  .mat-mdc-radio-label {
+    color: var(--text-primary) !important;
+  }
+
+  /* Material Slide Toggle */
+  .mat-mdc-slide-toggle-label {
+    color: var(--text-primary) !important;
+  }
+
+  .mat-mdc-slide-toggle {
+    color: var(--text-primary) !important;
+
+    .mat-mdc-slide-toggle-label-content {
+      color: var(--text-primary) !important;
+    }
+  }
+
+  /* Material Toolbar */
+  .mat-toolbar {
+    background-color: var(--color-bg-secondary) !important;
+    color: var(--text-primary) !important;
+  }
+
+  /* Material Sidenav */
+  .mat-drawer,
+  .mat-sidenav {
+    background-color: var(--bg-sidebar) !important;
+    color: var(--text-primary) !important;
+  }
+}

@@ -1,0 +1,211 @@
+/**
+ * Paleta de Cores do Projeto Energest
+ *
+ * Cores principais da marca:
+ * - Cool Steel: Azul claro e sofisticado
+ * - Steel Blue: Azul principal
+ * - Tan: Bege/Dourado suave
+ * - Dusty Rose: Rosa avermelhado suave
+ * - Coffee Bean: Marrom muito escuro (quase preto)
+ */
+
+/* ===================================
+   CORES CSS HEX
+   =================================== */
+
+:root {
+  --color-cool-steel: #9aadbf;
+  --color-steel-blue: #6d98ba;
+  --color-tan: #d3b99f;
+  --color-dusty-rose: #c17767;
+  --color-coffee-bean: #210203;
+
+  /* Variações de cores para diferentes estados */
+
+  /* Primárias */
+  --color-primary: var(--color-steel-blue);
+  --color-primary-light: var(--color-cool-steel);
+  --color-primary-dark: #4a6a8e;
+
+  /* Secundárias */
+  --color-secondary: var(--color-tan);
+  --color-secondary-light: #e5d4bc;
+  --color-secondary-dark: #b89968;
+
+  /* Acentos */
+  --color-accent: var(--color-dusty-rose);
+  --color-accent-light: #d89985;
+  --color-accent-dark: #a15949;
+
+  /* Neutras */
+  --color-dark: var(--color-coffee-bean);
+  --color-light: #f5f5f5;
+  --color-white: #ffffff;
+  --color-gray-1: #e8e8e8;
+  --color-gray-2: #d1d1d1;
+  --color-gray-3: #b0b0b0;
+  --color-gray-4: #808080;
+
+  /* Status */
+  --color-success: #4caf50;
+  --color-warning: #ff9800;
+  --color-error: #f44336;
+  --color-info: var(--color-steel-blue);
+
+  /* Backgrounds - Light Mode */
+  --color-bg-primary: var(--color-white);
+  --color-bg-secondary: #fafafa;
+  --color-bg-tertiary: #f0f0f0;
+  --bg-sidebar: #f8f9fa;
+  --bg-hover: #f5f5f5;
+  --bg-active: #e8f0f8;
+
+  /* Borders */
+  --color-border-light: var(--color-gray-1);
+  --color-border-medium: var(--color-gray-2);
+  --color-border-dark: var(--color-gray-3);
+  --border-color: var(--color-border-light);
+
+  /* Text - Light Mode */
+  --text-primary: var(--color-coffee-bean);
+  --text-secondary: #666666;
+}
+
+/* ===================================
+   DARK MODE
+   =================================== */
+
+.dark-mode {
+  /* Backgrounds - Dark Mode */
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #242424;
+  --color-bg-tertiary: #2d2d2d;
+  --bg-sidebar: #121212;
+  --bg-hover: #2d2d2d;
+  --bg-active: #1e3a52;
+
+  /* Borders - Dark Mode */
+  --border-color: #333333;
+
+  /* Text - Dark Mode */
+  --text-primary: #f5f5f5;
+  --text-secondary: #b0b0b0;
+
+  /* Colors - Dark Mode (adjusted for better visibility) */
+  --color-primary: #9aadbf;
+  --color-primary-light: #bfd4e8;
+  --color-primary-dark: #7a92ad;
+
+  --color-secondary: #d3b99f;
+  --color-secondary-light: #e5d4bc;
+  --color-secondary-dark: #b89968;
+
+  --color-accent: #d89985;
+  --color-accent-light: #e9b3a5;
+  --color-accent-dark: #c17767;
+
+  --color-success: #66bb6a;
+  --color-warning: #ffa726;
+  --color-error: #ef5350;
+  --color-info: #9aadbf;
+}
+
+/* ===================================
+   VARIÁVEIS SCSS
+   =================================== */
+
+// Cores base
+$cool-steel: #9aadbf;
+$steel-blue: #6d98ba;
+$tan: #d3b99f;
+$dusty-rose: #c17767;
+$coffee-bean: #210203;
+
+// Cores primárias
+$primary: $steel-blue;
+$primary-light: $cool-steel;
+$primary-dark: #4a6a8e;
+
+// Cores secundárias
+$secondary: $tan;
+$secondary-light: #e5d4bc;
+$secondary-dark: #b89968;
+
+// Acentos
+$accent: $dusty-rose;
+$accent-light: #d89985;
+$accent-dark: #a15949;
+
+// Neutras
+$dark: $coffee-bean;
+$light: #f5f5f5;
+$white: #ffffff;
+$gray-1: #e8e8e8;
+$gray-2: #d1d1d1;
+$gray-3: #b0b0b0;
+$gray-4: #808080;
+$gray-5: #606060;
+$gray-6: #404040;
+
+// Status
+$success: #4caf50;
+$warning: #ff9800;
+$error: #f44336;
+$info: $steel-blue;
+
+// Backgrounds
+$bg-primary: $white;
+$bg-secondary: #fafafa;
+$bg-tertiary: #f0f0f0;
+
+// Borders
+$border-light: $gray-1;
+$border-medium: $gray-2;
+$border-dark: $gray-3;
+
+/* ===================================
+   MAPA DE CORES (para Material)
+   =================================== */
+
+$color-palette: (
+  50: #f5f7fa,
+  100: #e8eef5,
+  200: #d1dce9,
+  300: #9aadbf,
+  400: #7a92ad,
+  500: #6d98ba,
+  600: #5d88aa,
+  700: #4d7899,
+  800: #3d6889,
+  900: #2d5878,
+  A100: #e5d4bc,
+  A200: #d3b99f,
+  A400: #b89968,
+  A700: #a15949,
+  contrast: (
+    50: $dark,
+    100: $dark,
+    200: $dark,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $dark,
+    A200: $dark,
+    A400: $white,
+    A700: $white,
+  )
+);
+
+/* ===================================
+   GRADIENTES
+   =================================== */
+
+$gradient-primary: linear-gradient(135deg, $primary 0%, $primary-light 100%);
+$gradient-secondary: linear-gradient(135deg, $secondary-dark 0%, $secondary 100%);
+$gradient-accent: linear-gradient(135deg, $accent-dark 0%, $accent 100%);
+$gradient-cool: linear-gradient(135deg, $cool-steel 0%, $steel-blue 100%);
+$gradient-warm: linear-gradient(135deg, $tan 0%, $dusty-rose 100%);

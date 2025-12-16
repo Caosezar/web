@@ -1,0 +1,26 @@
+<div class="container">
+  <header class="container-header">
+    <h1 class="container-title">{{ title() }}</h1>
+    @if (subtitle()) {
+      <p class="container-subtitle">{{ subtitle() }}</p>
+    }
+    @if (breadcrumbs.length > 0) {
+      <nav class="breadcrumb">
+        @for (item of breadcrumbs; track item.url; let isLast = $last) {
+          @if (!isLast) {
+            <a (click)="navigateTo(item.url)" class="breadcrumb-item">
+              {{ item.label }}
+            </a>
+            <span class="breadcrumb-separator">/</span>
+          } @else {
+            <span class="breadcrumb-item breadcrumb-current">{{ item.label }}</span>
+          }
+        }
+      </nav>
+    }
+  </header>
+
+  <div class="container-body">
+    <ng-content></ng-content>
+  </div>
+</div>

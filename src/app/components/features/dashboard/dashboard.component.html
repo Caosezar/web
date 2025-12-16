@@ -1,0 +1,18 @@
+<app-container [title]="'Dashboard'" [subtitle]="'Bem-vindo de volta!'">
+  <div class="stats-grid">
+    @for (stat of stats; track stat.label) {
+      <div class="stat-card">
+        <div class="stat-icon">{{ stat.icon }}</div>
+        <div class="stat-content">
+          <p class="stat-label">{{ stat.label }}</p>
+          <p class="stat-value" [textContent]="stat.value"></p>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="content-section">
+    <h2>Seções</h2>
+    <p>Componentes e seções adicionais virão aqui.</p>
+  </div>
+</app-container>

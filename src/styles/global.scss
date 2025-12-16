@@ -1,0 +1,373 @@
+/**
+ * Sistema de Estilos Globais
+ *
+ * Inclui:
+ * - Reset CSS
+ * - Tipografia base
+ * - Elementos HTML padrão
+ * - Utilitários
+ */
+
+@use './colors' as *;
+
+/* ===================================
+   RESET E ELEMENTOS BASE
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--color-bg-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===================================
+   TIPOGRAFIA
+   =================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: $gray-5;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+small {
+  font-size: 0.875rem;
+  color: $gray-4;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* ===================================
+   LINKS
+   =================================== */
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-dark;
+  }
+
+  &:active {
+    color: $primary-dark;
+  }
+
+  &:visited {
+    color: $accent;
+  }
+}
+
+/* ===================================
+   LISTAS
+   =================================== */
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* ===================================
+   FORMULÁRIOS
+   =================================== */
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+  border: 1px solid $border-light;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.1);
+  }
+
+  &:disabled {
+    background-color: $bg-tertiary;
+    color: $gray-4;
+    cursor: not-allowed;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===================================
+   BOTÕES
+   =================================== */
+
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* ===================================
+   TABELAS
+   =================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+thead {
+  background-color: $bg-tertiary;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid $border-light;
+}
+
+th {
+  font-weight: 600;
+  color: $dark;
+}
+
+tbody tr:hover {
+  background-color: $bg-secondary;
+}
+
+/* ===================================
+   CÓDIGOS
+   =================================== */
+
+code, pre {
+  font-family: 'Courier New', monospace;
+  background-color: $bg-tertiary;
+  color: $dark;
+}
+
+code {
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.875rem;
+}
+
+pre {
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+/* ===================================
+   CITAÇÕES
+   =================================== */
+
+blockquote {
+  border-left: 4px solid $primary;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: $bg-secondary;
+  font-style: italic;
+  color: $gray-5;
+}
+
+/* ===================================
+   IMAGENS
+   =================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===================================
+   SCROLL
+   =================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-3;
+  border-radius: 4px;
+
+  &:hover {
+    background: $gray-4;
+  }
+}
+
+/* ===================================
+   UTILITÁRIOS
+   =================================== */
+
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-accent {
+  color: $accent;
+}
+
+.text-dark {
+  color: $dark;
+}
+
+.text-light {
+  color: $gray-4;
+}
+
+.text-success {
+  color: $success;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-error {
+  color: $error;
+}
+
+.bg-primary {
+  background-color: $primary;
+  color: $white;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+  color: $dark;
+}
+
+.bg-accent {
+  background-color: $accent;
+  color: $white;
+}
+
+.bg-light {
+  background-color: $light;
+  color: $dark;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Clearfix */
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}

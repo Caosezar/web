@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ * Arquivo de estilos globais principal
+ *
+ * IMPORTAÇÕES:
+ * 1. Tema customizado (Material + Energest)
+ * 2. Estilos globais
+ * 3. Cores e variáveis SCSS
+ * 4. Mixins utilitários
+ */
+
+@import 'styles/theme.scss';
+@import 'styles/global.scss';
+@import 'styles/colors.scss';
+@import 'styles/mixins.scss';
+
+/**
+ * NOTA: Os arquivos SCSS acima definem:
+ * - Cores primárias e secundárias
+ * - Tipografia base
+ * - Reset CSS
+ * - Componentes Material customizados
+ * - Mixins e funções utilitárias
+ *
+ * Ver documentação em: src/styles/STYLES_GUIDE.md
+ */

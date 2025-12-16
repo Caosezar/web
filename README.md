@@ -1,4 +1,15 @@
 # Web
+RUN ON CONSOLE FOR AUTH:
+
+localStorage.setItem('auth_user', JSON.stringify({
+  id: '1',
+  name: 'João Silva',
+  email: 'joao@example.com',
+  role: 'admin'
+}));
+localStorage.setItem('auth_token', 'mock-token-12345');
+location.reload();
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
 
